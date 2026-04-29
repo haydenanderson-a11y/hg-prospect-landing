@@ -1,0 +1,20 @@
+{
+  "name": "hg-prospect-landing",
+  "version": "1.0.0",
+  "description": "Self-serve GTM intelligence landing page powered by HG Insights",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Static site, no build needed'",
+    "deploy": "netlify deploy --prod"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "hg-insights",
+    "sales-intelligence",
+    "gtm"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}

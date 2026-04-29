@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See Your GTM Intelligence | HG Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hg-navy: #0B1B3D;
+      --hg-blue: #1B4FE4;
+      --hg-blue-light: #3D6FF0;
+      --hg-cyan: #00C9DB;
+      --hg-gradient: linear-gradient(135deg, #1B4FE4 0%, #00C9DB 100%);
+      --hg-gradient-dark: linear-gradient(135deg, #0B1B3D 0%, #1B3A7A 100%);
+      --hg-orange: #FF6B35;
+      --hg-green: #00D68F;
+      --hg-red: #EF4444;
+      --hg-purple: #7B61FF;
+      --hg-white: #FFFFFF;
+      --hg-gray-50: #F8FAFC;
+      --hg-gray-100: #F1F5F9;
+      --hg-gray-200: #E2E8F0;
+      --hg-gray-300: #CBD5E1;
+      --hg-gray-500: #64748B;
+      --hg-gray-700: #334155;
+      --hg-gray-900: #0F172A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--hg-gray-900);
+      background: var(--hg-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ═══ HEADER ═══ */
+    .header {
+      background: var(--hg-white);
+      padding: 16px 40px;
+      border-bottom: 1px solid var(--hg-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--hg-navy);
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--hg-gradient);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .header-cta {
+      background: var(--hg-navy);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .header-cta:hover {
+      background: var(--hg-blue);
+    }
+
+    /* ═══ HERO / INPUT SECTION ═══ */
+    .hero {
+      background: var(--hg-gradient-dark);
+      padding: 80px 40px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,201,219,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(27,79,228,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--hg-cyan);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--hg-cyan);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--hg-white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .hero h1 .gradient-text {
+      background: var(--hg-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 550px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ═══ SEARCH FORM ═══ */
+    .search-form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-input {
+      flex: 1;
+      padding: 18px 24px;
+      font-size: 16px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-family: inherit;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .search-input::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--hg-cyan);
+      background: rgba(255,255,255,0.12);
+    }
+    .search-btn {
+      padding: 18px 32px;
+      background: var(--hg-gradient);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .search-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,79,228,0.4);
+    }
+    .search-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .search-btn .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+    }
+    .search-btn.loading .spinner { display: block; }
+    .search-btn.loading .btn-text { display: none; }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .search-hint {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .search-hint span {
+      color: var(--hg-cyan);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .search-hint span:hover { opacity: 0.8; }
+
+    /* ═══ TRUST BADGES ═══ */
+    .trust-section {
+      padding: 40px;
+      text-align: center;
+      background: var(--hg-gray-50);
+    }
+    .trust-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--hg-gray-500);
+      margin-bottom: 20px;
+    }
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      opacity: 0.6;
+    }
+    .trust-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--hg-gray-500);
+    }
+
+    /* ═══ FEATURES PREVIEW ═══ */
+    .features {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .features-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--hg-blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--hg-navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--hg-gray-500);
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--hg-white);
+      border-radius: 20px;
+      padding: 32px 24px;
+      border: 1px solid var(--hg-gray-100);
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      border-color: transparent;
+      box-shadow: 0 20px 60px rgba(27,79,228,0.1);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .icon-tech { background: linear-gradient(135deg, #EEF2FF, #DBEAFE); }
+    .icon-intent { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); }
+    .icon-compete { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--hg-navy);
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--hg-gray-500);
+      line-height: 1.6;
+    }
+
+    /* ═══ ERROR STATE ═══ */
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #FCA5A5;
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-size: 14px;
+      display: none;
+    }
+    .error-message.visible { display: block; }
+
+    /* ═══ RESULTS PAGE ═══ */
+    #input-page { display: block; }
+    #results-page { display: none; }
+    body.show-results #input-page { display: none; }
+    body.show-results #results-page { display: block; }
+
+    .results-hero {
+      background: var(--hg-gradient-dark);
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .results-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,201,219,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .results-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .company-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      padding: 12px 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .company-logo {
+      width: 44px;
+      height: 44px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--hg-navy);
+      overflow: hidden;
+    }
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+    .company-info h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      text-align: left;
+    }
+    .company-info p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-align: left;
+    }
+    .results-hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .results-hero > .results-hero-content > p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      z-index: 10;
+    }
+    .back-link:hover { color: white; }
+
+    /* ═══ STATS BAR ═══ */
+    .stats-bar {
+      background: var(--hg-white);
+      padding: 0 40px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 5;
+    }
+    .stats-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+    .stat-item {
+      padding: 24px;
+      text-align: center;
+      border-right: 1px solid var(--hg-gray-100);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--hg-navy);
+      margin-bottom: 4px;
+    }
+    .stat-value.highlight { color: var(--hg-blue); }
+    .stat-value.success { color: var(--hg-green); }
+    .stat-value.warning { color: var(--hg-orange); }
+    .stat-label {
+      font-size: 12px;
+      color: var(--hg-gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* ═══ CONTENT SECTIONS ═══ */
+    .content-section {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .content-section.alt-bg {
+      background: var(--hg-gray-50);
+      max-width: 100%;
+    }
+    .content-section.alt-bg > .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .content-header {
+      margin-bottom: 32px;
+    }
+    .content-header h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--hg-navy);
+      margin-bottom: 8px;
+    }
+    .content-header p {
+      font-size: 15px;
+      color: var(--hg-gray-500);
+    }
+
+    /* ═══ TECH STACK GRID ═══ */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .tech-card {
+      background: white;
+      border: 1px solid var(--hg-gray-100);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+    .tech-card:hover {
+      border-color: var(--hg-blue-light);
+      box-shadow: 0 4px 12px rgba(27,79,228,0.08);
+    }
+    .tech-card.highlight {
+      border-color: var(--hg-cyan);
+      background: linear-gradient(135deg, rgba(0,201,219,0.05), rgba(27,79,228,0.05));
+    }
+    .tech-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--hg-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--hg-gray-500);
+      flex-shrink: 0;
+    }
+    .tech-details h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--hg-navy);
+    }
+    .tech-details p {
+      font-size: 12px;
+      color: var(--hg-gray-500);
+    }
+
+    /* ═══ INTENT SIGNALS ═══ */
+    .intent-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .intent-item {
+      background: white;
+      border: 1px solid var(--hg-gray-100);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .intent-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .intent-icon.high {
+      background: linear-gradient(135deg, #DCFCE7, #BBF7D0);
+    }
+    .intent-icon.medium {
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    }
+    .intent-info { flex: 1; }
+    .intent-info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--hg-navy);
+      margin-bottom: 2px;
+    }
+    .intent-info p {
+      font-size: 13px;
+      color: var(--hg-gray-500);
+    }
+    .intent-strength {
+      text-align: right;
+    }
+    .intent-strength .value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--hg-green);
+    }
+    .intent-strength .label {
+      font-size: 11px;
+      color: var(--hg-gray-500);
+      text-transform: uppercase;
+    }
+
+    /* ═══ COMPETITOR INTEL ═══ */
+    .competitor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .competitor-card {
+      background: white;
+      border: 1px solid var(--hg-gray-100);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .competitor-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .competitor-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--hg-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--hg-gray-500);
+    }
+    .competitor-name h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--hg-navy);
+    }
+    .competitor-name p {
+      font-size: 12px;
+      color: var(--hg-gray-500);
+    }
+    .competitor-stats {
+      display: flex;
+      gap: 16px;
+    }
+    .competitor-stat {
+      flex: 1;
+      background: var(--hg-gray-50);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    .competitor-stat .num {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--hg-blue);
+    }
+    .competitor-stat .lbl {
+      font-size: 10px;
+      color: var(--hg-gray-500);
+      text-transform: uppercase;
+    }
+
+    /* ═══ OPPORTUNITY TEASER ═══ */
+    .opportunity-section {
+      background: var(--hg-gradient-dark);
+      padding: 60px 40px;
+      color: white;
+    }
+    .opportunity-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .opportunity-section .section-label {
+      color: var(--hg-cyan);
+    }
+    .opportunity-section h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .opportunity-section > .opportunity-inner > p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+    .opportunity-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .opportunity-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .opportunity-card .opp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .opportunity-card .opp-logo {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .opportunity-card .opp-info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+    }
+    .opportunity-card .opp-info p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+    .opportunity-card .opp-signal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--hg-cyan);
+    }
+    .opportunity-card .opp-signal::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--hg-cyan);
+      border-radius: 50%;
+    }
+    .blurred-card {
+      filter: blur(4px);
+      user-select: none;
+      position: relative;
+    }
+    .blur-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 27, 61, 0.3);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(0);
+    }
+    .blur-overlay span {
+      background: var(--hg-gradient);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ═══ CTA SECTION ═══ */
+    .cta-section {
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .cta-box {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--hg-gradient-dark);
+      border-radius: 24px;
+      padding: 56px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,201,219,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-box h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--hg-gradient);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,79,228,0.4);
+    }
+
+    /* ═══ FOOTER ═══ */
+    .footer {
+      padding: 32px 40px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--hg-gray-500);
+      border-top: 1px solid var(--hg-gray-100);
+    }
+    .footer a {
+      color: var(--hg-blue);
+      text-decoration: none;
+    }
+
+    /* ═══ LOADING SKELETON ═══ */
+    .skeleton {
+      background: linear-gradient(90deg, var(--hg-gray-100) 25%, var(--hg-gray-50) 50%, var(--hg-gray-100) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 8px;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero { padding: 60px 20px 80px; }
+      .search-form { flex-direction: column; }
+      .features-grid { grid-template-columns: 1fr; }
+      .stats-container { grid-template-columns: repeat(2, 1fr); }
+      .competitor-grid, .opportunity-cards { grid-template-columns: 1fr; }
+      .header { padding: 16px 20px; }
+      .content-section { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- INPUT PAGE -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="input-page">
+    <header class="header">
+      <a href="/" class="logo">
+        <div class="logo-icon">HG</div>
+        HG Insights
+      </a>
+      <a href="https://hginsights.com/demo" class="header-cta" target="_blank">Request Full Demo</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Free Intelligence Preview
+        </div>
+        <h1>See What HG Knows<br>About <span class="gradient-text">Your Market</span></h1>
+        <p>Enter your company domain and instantly see your tech stack, competitive landscape, and active buyer intent signals.</p>
+
+        <form class="search-form" id="company-form">
+          <input 
+            type="text" 
+            class="search-input" 
+            id="company-input"
+            placeholder="Enter your company domain (e.g., asana.com)"
+            autocomplete="off"
+            required
+          >
+          <button type="submit" class="search-btn" id="search-btn">
+            <span class="spinner"></span>
+            <span class="btn-text">See My Intel →</span>
+          </button>
+        </form>
+        <div class="error-message" id="error-message"></div>
+        <p class="search-hint">
+          Try: <span onclick="tryDomain('asana.com')">asana.com</span> · 
+          <span onclick="tryDomain('stripe.com')">stripe.com</span> · 
+          <span onclick="tryDomain('salesforce.com')">salesforce.com</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <p class="trust-label">Trusted by leading GTM teams</p>
+      <div class="trust-logos">
+        <span class="trust-logo">Snowflake</span>
+        <span class="trust-logo">ServiceNow</span>
+        <span class="trust-logo">Zoom</span>
+        <span class="trust-logo">SAP</span>
+        <span class="trust-logo">Dell</span>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="features-header">
+        <span class="section-label">What You'll See</span>
+        <h2 class="section-title">Your Personalized GTM Intelligence</h2>
+        <p class="section-subtitle">Real-time insights about your company, competitors, and the accounts actively researching your category.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon icon-tech">🔧</div>
+          <h3>Your Tech Stack</h3>
+          <p>See what HG knows about your technology investments—and how it compares to your competitive set.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon icon-intent">🎯</div>
+          <h3>Buyer Intent Signals</h3>
+          <p>Discover which topics and technologies your company is actively researching, based on intent data.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon icon-compete">⚔️</div>
+          <h3>Competitive Landscape</h3>
+          <p>See install counts for your competitors and get a preview of accounts showing displacement intent.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 HG Insights. <a href="https://hginsights.com/privacy" target="_blank">Privacy Policy</a> · <a href="https://hginsights.com/terms" target="_blank">Terms of Service</a></p>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- RESULTS PAGE -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="results-page">
+    <header class="header">
+      <a href="/" class="logo">
+        <div class="logo-icon">HG</div>
+        HG Insights
+      </a>
+      <a href="https://hginsights.com/demo" class="header-cta" target="_blank">Get Full Access</a>
+    </header>
+
+    <section class="results-hero">
+      <a href="#" class="back-link" onclick="goBack(event)">← Try another company</a>
+      <div class="results-hero-content">
+        <div class="company-badge">
+          <div class="company-logo" id="result-logo">
+            <img src="" alt="" id="result-logo-img" style="display:none">
+            <span id="result-logo-text"></span>
+          </div>
+          <div class="company-info">
+            <h2 id="result-company-name">Loading...</h2>
+            <p id="result-company-meta">Industry · Location</p>
+          </div>
+        </div>
+        <h1>Your GTM Intelligence Preview</h1>
+        <p>Here's what HG Insights knows about your company, your competitors, and the market opportunities waiting for you.</p>
+      </div>
+    </section>
+
+    <div class="stats-bar">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-products">--</div>
+          <div class="stat-label">Products Detected</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value highlight" id="stat-intent">--</div>
+          <div class="stat-label">Intent Signals</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value warning" id="stat-competitors">--</div>
+          <div class="stat-label">Competitors Tracked</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value success" id="stat-opportunities">--</div>
+          <div class="stat-label">Potential Wins</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack Section -->
+    <section class="content-section">
+      <div class="content-header">
+        <span class="section-label">Technology Intelligence</span>
+        <h2>Your Detected Tech Stack</h2>
+        <p>Products we've identified through our proprietary data collection. GTM-relevant technologies are highlighted.</p>
+      </div>
+      <div class="tech-grid" id="tech-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Intent Signals Section -->
+    <section class="content-section alt-bg">
+      <div class="section-inner">
+        <div class="content-header">
+          <span class="section-label">Buyer Intent</span>
+          <h2>Active Research Signals</h2>
+          <p>Topics and technologies your company is actively researching, based on intent data from HG + TrustRadius.</p>
+        </div>
+        <div class="intent-list" id="intent-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitive Intel Section -->
+    <section class="content-section">
+      <div class="content-header">
+        <span class="section-label">Competitive Landscape</span>
+        <h2>Your Top Competitors</h2>
+        <p>Companies in your space and their current market presence based on verified install data.</p>
+      </div>
+      <div class="competitor-grid" id="competitor-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Opportunity Teaser Section -->
+    <section class="opportunity-section">
+      <div class="opportunity-inner">
+        <span class="section-label">🔥 Accounts You Could Win</span>
+        <h2>Companies Ready to Switch</h2>
+        <p>These accounts are currently using your competitors AND showing intent signals for alternatives. With full access, you'd see hundreds more.</p>
+        <div class="opportunity-cards" id="opportunity-cards">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-box">
+        <h2>Want the Full Picture?</h2>
+        <p>This is just a preview. With HG Insights, you get complete competitive intelligence, unlimited intent signals, and detailed account profiles.</p>
+        <a href="https://hginsights.com/demo" class="cta-button" target="_blank">
+          Request a Full Demo →
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 HG Insights. <a href="https://hginsights.com/privacy" target="_blank">Privacy Policy</a> · <a href="https://hginsights.com/terms" target="_blank">Terms of Service</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // ═══ MAIN LOGIC ═══
+    const form = document.getElementById('company-form');
+    const input = document.getElementById('company-input');
+    const btn = document.getElementById('search-btn');
+    const errorEl = document.getElementById('error-message');
+
+    function tryDomain(domain) {
+      input.value = domain;
+      form.dispatchEvent(new Event('submit'));
+    }
+
+    function goBack(e) {
+      e.preventDefault();
+      document.body.classList.remove('show-results');
+      window.scrollTo(0, 0);
+    }
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('visible');
+    }
+
+    function hideError() {
+      errorEl.classList.remove('visible');
+    }
+
+    function normalizeDomain(input) {
+      let domain = input.trim().toLowerCase();
+      domain = domain.replace(/^(https?:\/\/)?(www\.)?/, '');
+      domain = domain.split('/')[0];
+      return domain;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError();
+
+      const domain = normalizeDomain(input.value);
+      if (!domain || !domain.includes('.')) {
+        showError('Please enter a valid company domain (e.g., asana.com)');
+        return;
+      }
+
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/.netlify/functions/company-intel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ domain })
+        });
+
+        if (!response.ok) {
+          const err = await response.json();
+          throw new Error(err.error || 'Failed to fetch company data');
+        }
+
+        const data = await response.json();
+        renderResults(data);
+        document.body.classList.add('show-results');
+        window.scrollTo(0, 0);
+
+      } catch (err) {
+        showError(err.message || 'Something went wrong. Please try again.');
+      } finally {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      }
+    });
+
+    // ═══ RENDER RESULTS ═══
+    function renderResults(data) {
+      // Company header
+      document.getElementById('result-company-name').textContent = data.company.name || data.domain;
+      document.getElementById('result-company-meta').textContent = 
+        `${data.company.industry || 'Technology'} · ${data.company.location || 'United States'} · ${data.company.employees || '1,000+'} employees`;
+      
+      // Logo
+      const logoText = document.getElementById('result-logo-text');
+      const logoImg = document.getElementById('result-logo-img');
+      logoText.textContent = (data.company.name || data.domain).substring(0, 2).toUpperCase();
+      
+      // Try to load logo from Clearbit
+      logoImg.src = `https://logo.clearbit.com/${data.domain}`;
+      logoImg.onload = () => {
+        logoImg.style.display = 'block';
+        logoText.style.display = 'none';
+      };
+      logoImg.onerror = () => {
+        logoImg.style.display = 'none';
+        logoText.style.display = 'block';
+      };
+
+      // Stats
+      document.getElementById('stat-products').textContent = data.techStack?.length || 0;
+      document.getElementById('stat-intent').textContent = data.intentSignals?.length || 0;
+      document.getElementById('stat-competitors').textContent = data.competitors?.length || 0;
+      document.getElementById('stat-opportunities').textContent = data.opportunities?.length || '2+';
+
+      // Tech Stack
+      const techGrid = document.getElementById('tech-grid');
+      techGrid.innerHTML = '';
+      (data.techStack || []).slice(0, 12).forEach(tech => {
+        const isGTM = ['CRM', 'Marketing', 'Sales', 'Analytics', 'Data'].some(cat => 
+          (tech.category || '').includes(cat)
+        );
+        techGrid.innerHTML += `
+          <div class="tech-card ${isGTM ? 'highlight' : ''}">
+            <div class="tech-icon">${(tech.name || 'N/A').substring(0, 2).toUpperCase()}</div>
+            <div class="tech-details">
+              <h4>${tech.name || 'Unknown'}</h4>
+              <p>${tech.category || 'Technology'}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      // Intent Signals
+      const intentList = document.getElementById('intent-list');
+      intentList.innerHTML = '';
+      (data.intentSignals || []).slice(0, 5).forEach(signal => {
+        const isHigh = signal.strength > 70;
+        intentList.innerHTML += `
+          <div class="intent-item">
+            <div class="intent-icon ${isHigh ? 'high' : 'medium'}">${isHigh ? '🔥' : '📈'}</div>
+            <div class="intent-info">
+              <h4>${signal.topic || 'Unknown Topic'}</h4>
+              <p>${signal.description || 'Active research detected'}</p>
+            </div>
+            <div class="intent-strength">
+              <div class="value">${signal.strength || 50}</div>
+              <div class="label">Signal Strength</div>
+            </div>
+          </div>
+        `;
+      });
+      if (!data.intentSignals?.length) {
+        intentList.innerHTML = '<p style="color: var(--hg-gray-500); text-align: center; padding: 40px;">No active intent signals detected. This could mean your team is in stealth mode! 🕵️</p>';
+      }
+
+      // Competitors
+      const competitorGrid = document.getElementById('competitor-grid');
+      competitorGrid.innerHTML = '';
+      (data.competitors || []).slice(0, 4).forEach(comp => {
+        competitorGrid.innerHTML += `
+          <div class="competitor-card">
+            <div class="competitor-header">
+              <div class="competitor-logo">${(comp.name || 'N/A').substring(0, 2).toUpperCase()}</div>
+              <div class="competitor-name">
+                <h4>${comp.name || 'Competitor'}</h4>
+                <p>${comp.category || 'Same category'}</p>
+              </div>
+            </div>
+            <div class="competitor-stats">
+              <div class="competitor-stat">
+                <div class="num">${formatNumber(comp.installs || 0)}</div>
+                <div class="lbl">Installs</div>
+              </div>
+              <div class="competitor-stat">
+                <div class="num">${comp.intentAccounts || '50+'}</div>
+                <div class="lbl">Showing Intent</div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      // Opportunities (with blur teaser)
+      const oppCards = document.getElementById('opportunity-cards');
+      oppCards.innerHTML = '';
+      const opps = data.opportunities || [];
+      
+      if (opps.length > 0) {
+        // Show first one clearly
+        oppCards.innerHTML += `
+          <div class="opportunity-card">
+            <div class="opp-header">
+              <div class="opp-logo">${(opps[0].name || 'Co').substring(0, 2).toUpperCase()}</div>
+              <div class="opp-info">
+                <h4>${opps[0].name || 'Enterprise Company'}</h4>
+                <p>${opps[0].industry || 'Technology'} · ${opps[0].employees || '5,000+'} employees</p>
+              </div>
+            </div>
+            <div class="opp-signal">${opps[0].signal || 'Evaluating alternatives to ' + (data.competitors?.[0]?.name || 'competitor')}</div>
+          </div>
+        `;
+        
+        // Show second one blurred
+        oppCards.innerHTML += `
+          <div style="position: relative;">
+            <div class="opportunity-card blurred-card">
+              <div class="opp-header">
+                <div class="opp-logo">??</div>
+                <div class="opp-info">
+                  <h4>Fortune 500 Company</h4>
+                  <p>Financial Services · 10,000+ employees</p>
+                </div>
+              </div>
+              <div class="opp-signal">Contract renewal in Q3 2026</div>
+            </div>
+            <div class="blur-overlay">
+              <span>🔒 Unlock with Full Access</span>
+            </div>
+          </div>
+        `;
+      } else {
+        oppCards.innerHTML = `
+          <div class="opportunity-card">
+            <div class="opp-header">
+              <div class="opp-logo">?</div>
+              <div class="opp-info">
+                <h4>Opportunities Hidden</h4>
+                <p>Request a demo to see accounts ready to switch</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function formatNumber(num) {
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+      return num.toString();
+    }
+  </script>
+
+</body>
+</html>
